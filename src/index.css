@@ -46,3 +46,9 @@ body {
   font-size: 1.4rem;
   color: #495057;
 }
+
+main {
+  background-color: #eee;
+  padding: 3rem 1.5rem;
+  min-height: calc(100vh - 92px); /* hauteur page - hauteur header */
+}
