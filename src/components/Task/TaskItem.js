@@ -7,8 +7,8 @@ import classes from './TaskItem.module.css';
 const TaskItem = (props) => {
   return (
     <li className={classes.item}>
-      <label htmlFor={props.id}>{props.label}</label>
-      <input type="checkbox" id={props.id} />
+      <span>{props.label}</span>
+      <div className={classes.check}></div>
     </li>
   );
 }
