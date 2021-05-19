@@ -13,8 +13,8 @@ const tasks = [
 
 const TasksList = () => {
   return (
-    <>
-      <ul className={classes.list}>
+    <div className={classes.list}>
+      <ul>
         {tasks.map(task => (
           <TaskItem
             key={task.id}
@@ -23,7 +23,7 @@ const TasksList = () => {
         ))}
       </ul>
       <TaskAddButton />
-    </>
+    </div>
   )
 }
 

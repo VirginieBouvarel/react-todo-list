@@ -1,11 +1,11 @@
-import styles from './TaskAddButton.module.css';
+import classes from './TaskAddButton.module.css';
 
-const Button = (props) => {
+const TaskAddButton = (props) => {
 
   return (
     <button
-      type={props.type || 'button'}
-      className={`${styles.button} ${props.className}`}
+      type="button"
+      className={classes.button}
       onClick={props.onClick}
     >
       +
@@ -13,4 +13,4 @@ const Button = (props) => {
   );
 }
 
-export default Button;
+export default TaskAddButton;

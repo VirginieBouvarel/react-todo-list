@@ -1,4 +1,11 @@
 .list {
   margin: 0 auto;
   max-width: 60rem;
+  padding-bottom: 10rem;
+}
+
+@media (min-width: 500px) {
+  .list {
+    position: relative;
+  }
 }

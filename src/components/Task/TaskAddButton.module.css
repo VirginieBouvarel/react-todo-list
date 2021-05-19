@@ -4,12 +4,12 @@
   border: 1px solid #9932cc;
   background: #9932cc;
   color: white;
-  padding: 1.7rem 2.7rem;
+  padding: 1.2rem 2.2rem;
   cursor: pointer;
   border-radius: 50%;
   position: absolute;
   bottom: 1.5rem;
-  right: 1.5rem;
+  left: calc(50% - 38px);
 }
 
 .button:hover,
