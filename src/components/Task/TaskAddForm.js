@@ -2,6 +2,7 @@
 //import Modal from './Modal';
 import Modal from '../UI/Modal';
 import Input from '../UI/Input';
+import Button from '../UI/Button';
 import classes from './TaskAddForm.module.css';
 
 
@@ -20,9 +21,12 @@ const TaskAddForm = (props) => {
           onBlur={() => { }}
         />
 
-        <button className={classes.button} onClick={props.onClose}>
+        <Button
+          type="submit"
+          onClick={props.onClose}
+        >
           Ajouter
-        </button>
+        </Button>
 
       </form>
     </Modal>
