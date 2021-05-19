@@ -6,3 +6,9 @@
 .header > h1 {
   color: #fff;
 }
+
+.my {
+  font-style: italic;
+  font-family: "Dancing Script", cursive;
+  font-weight: bolder;
+}

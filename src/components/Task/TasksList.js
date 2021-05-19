@@ -2,7 +2,7 @@ import React from 'react';
 import TaskItem from './TaskItem';
 import TaskAddButton from './TaskAddButton';
 
-// import classes from './TasksList.module.css';
+import classes from './TasksList.module.css';
 
 const tasks = [
   { id: "task-1", name: "Faire une todo list" },
@@ -14,7 +14,7 @@ const tasks = [
 const TasksList = () => {
   return (
     <>
-      <ul>
+      <ul className={classes.list}>
         {tasks.map(task => (
           <TaskItem
             key={task.id}
