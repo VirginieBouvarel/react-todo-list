@@ -4,25 +4,22 @@ import TaskAddButton from './TaskAddButton';
 
 import classes from './TasksList.module.css';
 
-const tasks = [
-  { id: "task-1", name: "Faire une todo list" },
-  { id: "task-2", name: "Apprendre React" },
-  { id: "task-3", name: "Apprendre Vue.js" },
-  { id: "task-4", name: "Réviser la méthode map()" },
-];
 
-const TasksList = () => {
+
+const TasksList = (props) => {
   return (
     <div className={classes.list}>
       <ul>
-        {tasks.map(task => (
+        {props.tasks.map(task => (
           <TaskItem
             key={task.id}
+            id={task.id}
             label={task.name}
+            onCheck={props.onCheck}
           />
         ))}
       </ul>
-      <TaskAddButton />
+      <TaskAddButton onPlus={props.onPlus} />
     </div>
   )
 }

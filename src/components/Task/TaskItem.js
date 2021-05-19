@@ -8,7 +8,7 @@ const TaskItem = (props) => {
   return (
     <li className={classes.item}>
       <span>{props.label}</span>
-      <div className={classes.check}></div>
+      <div className={classes.check} onClick={props.onCheck.bind(null, props.id)}></div>
     </li>
   );
 }

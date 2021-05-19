@@ -6,7 +6,7 @@ const TaskAddButton = (props) => {
     <button
       type="button"
       className={classes.button}
-      onClick={props.onClick}
+      onClick={props.onPlus}
     >
       +
     </button>
