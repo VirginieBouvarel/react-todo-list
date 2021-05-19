@@ -1,6 +1,6 @@
 import React from 'react';
 import TaskItem from './TaskItem';
-//import Button from './Button';
+import TaskAddButton from './TaskAddButton';
 
 // import classes from './TasksList.module.css';
 
@@ -13,14 +13,17 @@ const tasks = [
 
 const TasksList = () => {
   return (
-    <ul>
-      {tasks.map(task => (
-        <TaskItem
-          key={task.id}
-          label={task.name}
-        />
-      ))}
-    </ul>
+    <>
+      <ul>
+        {tasks.map(task => (
+          <TaskItem
+            key={task.id}
+            label={task.name}
+          />
+        ))}
+      </ul>
+      <TaskAddButton />
+    </>
   )
 }
 
