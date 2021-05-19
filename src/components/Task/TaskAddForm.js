@@ -1,18 +1,29 @@
 //import React, { useState } from 'react';
 //import Modal from './Modal';
 import Modal from '../UI/Modal';
+import Input from '../UI/Input';
 import classes from './TaskAddForm.module.css';
 
 
 const TaskAddForm = (props) => {
   return (
     <Modal onClose={props.onClose}>
-      <form>
-        <label htmlFor="new-task"></label>
-        <input type="text" name="new-task" id="new-task" />
+      <form className={classes.form}>
+
+        <Input
+          type="text"
+          id="new-task"
+          placeholder="Nouvelle tâche"
+          isValid={true}
+          value={undefined}
+          onChange={() => { }}
+          onBlur={() => { }}
+        />
+
         <button className={classes.button} onClick={props.onClose}>
           Ajouter
-            </button>
+        </button>
+
       </form>
     </Modal>
   )

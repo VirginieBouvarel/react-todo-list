@@ -13,5 +13,5 @@ Les points techniques qui m'ont demandé le plus de réflexion concernent: .<br>
 
 Avec ce projet j'ai appris...
 
-- qu'il était toujours aussi dur de sauter le pas du premier projet après une longue période de tutos 🤦‍♀️
--
+- qu'il est toujours aussi dur de sauter le pas du premier projet après une longue période de tutos 🤦‍♀️
+- que découper judicieusement une application en composants est un art
