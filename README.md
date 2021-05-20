@@ -16,3 +16,8 @@ Avec ce projet j'ai appris...
 - que plonger dans les tutos, même encore aujourd'hui, est contreproductif, car engranger des techniques "théoriquement" seulement, fait se sentir ignorant.
 - que passer le cap du projet from scratch est toujours libérateur et fait réemerger les compétences acquises.
 - que découper judicieusement une application en composants est le fondement d'une bonne utilisation des frameworks front.
+
+Ce que je pourrais améliorer...
+
+- déplacer la logique d'ajout, édition et suppression des tâches dans le composant TasksList
+- ajouter des animations pour l'ajout et la suppresion des tâches
