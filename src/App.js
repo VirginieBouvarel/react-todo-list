@@ -23,7 +23,7 @@ function App() {
   }
   const addHandler = (task) => {
     const newTask = {
-      id: `task-${tasks.length + 1}`,
+      id: `task-${Math.random().toString()}`,
       name: `${task}`
     };
     setTasks((previousState) => {
@@ -37,6 +37,7 @@ function App() {
       return [...updatedTasks];
     });
   }
+
   return (
     <div className="App">
       { formIsVisible && <TaskAddForm onClose={hideFormHandler} onAdd={addHandler} />}
