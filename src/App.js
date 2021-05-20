@@ -1,19 +1,19 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import Header from './components/Header';
 import TasksList from './components/Task/TasksList';
 import TaskAddForm from './components/Task/TaskAddForm';
 
-const tasksData = [
-  { id: "task-1", name: "Faire une todo list" },
-  { id: "task-2", name: "Apprendre React" },
-  { id: "task-3", name: "Apprendre Vue.js" },
-  { id: "task-4", name: "Réviser la méthode map()" },
-];
 
 function App() {
+  const savedTasks = localStorage.getItem('tasks-list');
   const [formIsVisible, setFormIsVisible] = useState(false);
-  const [tasks, setTasks] = useState(tasksData);
+  const [tasks, setTasks] = useState(savedTasks ? JSON.parse(savedTasks) : []);
+
+  useEffect(
+    () => { localStorage.setItem('tasks-list', JSON.stringify(tasks)) },
+    [tasks]
+  );
 
   const showFormHandler = () => {
     setFormIsVisible(true);
@@ -43,7 +43,11 @@ function App() {
       { formIsVisible && <TaskAddForm onClose={hideFormHandler} onAdd={addHandler} />}
       <Header />
       <main>
-        <TasksList tasks={tasks} onPlus={showFormHandler} onCheck={checkHandler} />
+        <TasksList
+          tasks={tasks}
+          onPlus={showFormHandler}
+          onCheck={checkHandler}
+        />
       </main>
     </div>
   );
