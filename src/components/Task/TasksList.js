@@ -16,6 +16,7 @@ const TasksList = (props) => {
             id={task.id}
             label={task.name}
             onCheck={props.onCheck}
+            onChange={props.onChange}
           />
         ))}
       </ul>

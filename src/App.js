@@ -38,6 +38,21 @@ function App() {
     });
   }
 
+  const editHandler = (value, id) => {
+    setTasks((previousState) => {
+      const existingTaskIndex = previousState.findIndex(task => task.id === id);
+      const existingTask = previousState[existingTaskIndex];
+
+      const updatedtask = { ...existingTask, name: value };
+
+      const updatedTasks = [...previousState];
+      updatedTasks[existingTaskIndex] = updatedtask;
+
+      console.log(updatedTasks)
+      return [...updatedTasks];
+    });
+  }
+
   return (
     <div className="App">
       { formIsVisible && <TaskAddForm onClose={hideFormHandler} onAdd={addHandler} />}
@@ -47,6 +62,7 @@ function App() {
           tasks={tasks}
           onPlus={showFormHandler}
           onCheck={checkHandler}
+          onChange={editHandler}
         />
       </main>
     </div>
