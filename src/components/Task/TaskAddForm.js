@@ -21,12 +21,13 @@ const TaskAddForm = (props) => {
 
   return (
     <Modal onClose={props.onClose}>
-      <form className={classes.form} >
+      <form className={classes.form} onSubmit={submitHandler}>
 
         <Input
           type="text"
           id="new-task"
           placeholder="Nouvelle tâche"
+          autoFocus={"autoFocus"}
           isValid={true}
           value={enteredTask}
           onChange={enteredTaskChangeHandler}
@@ -35,7 +36,6 @@ const TaskAddForm = (props) => {
 
         <Button
           type="submit"
-          onClick={submitHandler}
         >
           Ajouter
         </Button>

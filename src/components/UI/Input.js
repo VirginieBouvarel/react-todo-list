@@ -19,6 +19,7 @@ const Input = (props) => {
         value={props.value}
         onChange={props.onChange}
         onBlur={props.onBlur}
+        autoFocus={props.autoFocus || ""}
       />
     </div>
   );
