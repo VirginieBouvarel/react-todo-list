@@ -1,4 +1,4 @@
-### Live version [here](https://virginiebouvarel.github.io/react-todo-list/)
+### Live version [here](https://react-todo-list-virginiebouvarel.vercel.app/)
 
 # React-todo-list
 
