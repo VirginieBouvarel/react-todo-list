@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-//import Modal from './Modal';
 import Modal from '../UI/Modal';
 import Input from '../UI/Input';
 import Button from '../UI/Button';

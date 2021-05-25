@@ -1,6 +1,3 @@
-//import React, { useState } from 'react';
-//import y from './y';
-//import y from '../UI/y';
 import classes from './Header.module.css';
 
 
