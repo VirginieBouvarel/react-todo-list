@@ -14,6 +14,9 @@ const TaskAddForm = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
+    if (enteredTask.trim().length === 0) {
+      return;
+    }
     props.onAdd(enteredTask);
     props.onClose();
   }
