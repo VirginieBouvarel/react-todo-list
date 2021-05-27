@@ -1,14 +1,40 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useReducer, useEffect } from 'react'
 
 import Header from './components/Header';
 import TasksList from './components/Task/TasksList';
 import TaskAddForm from './components/Task/TaskAddForm';
 
+const tasksReducer = (previousState, action) => {
+  if (action.type === "ADD") {
+    const newTask = {
+      id: `task-${Math.random().toString()}`,
+      name: `${action.data}`
+    };
+    return [...previousState, newTask];
+  }
+  if (action.type === "CHECK") {
+    const updatedTasks = previousState.filter((item) => item.id !== action.data);
+    return [...updatedTasks];
+  }
+  if (action.type === "EDIT") {
+    const existingTaskIndex = previousState.findIndex(task => task.id === action.data.id);
+    const existingTask = previousState[existingTaskIndex];
+
+    const updatedtask = { ...existingTask, name: action.data.value };
+    const updatedTasks = [...previousState];
+    updatedTasks[existingTaskIndex] = updatedtask;
+
+    return [...updatedTasks];
+
+  }
+};
 
 function App() {
   const savedTasks = localStorage.getItem('tasks-list');
   const [formIsVisible, setFormIsVisible] = useState(false);
-  const [tasks, setTasks] = useState(savedTasks ? JSON.parse(savedTasks) : []);
+  // const [tasks, setTasks] = useState(savedTasks ? JSON.parse(savedTasks) : []);
+  const tasksInitialState = savedTasks ? JSON.parse(savedTasks) : [];
+  const [tasks, dispatchTasksUpdate] = useReducer(tasksReducer, tasksInitialState)
 
   useEffect(
     () => { localStorage.setItem('tasks-list', JSON.stringify(tasks)) },
@@ -22,35 +48,14 @@ function App() {
     setFormIsVisible(false);
   }
   const addHandler = (task) => {
-    const newTask = {
-      id: `task-${Math.random().toString()}`,
-      name: `${task}`
-    };
-    setTasks((previousState) => {
-      return [...previousState, newTask]
-    });
+    dispatchTasksUpdate({ type: "ADD", data: task })
   }
   const checkHandler = (id) => {
-    setTasks((previousState) => {
-      const updatedTasks = previousState.filter((item) => item.id !== id);
-      console.log(updatedTasks)
-      return [...updatedTasks];
-    });
+    dispatchTasksUpdate({ type: "CHECK", data: id })
   }
 
   const editHandler = (value, id) => {
-    setTasks((previousState) => {
-      const existingTaskIndex = previousState.findIndex(task => task.id === id);
-      const existingTask = previousState[existingTaskIndex];
-
-      const updatedtask = { ...existingTask, name: value };
-
-      const updatedTasks = [...previousState];
-      updatedTasks[existingTaskIndex] = updatedtask;
-
-      console.log(updatedTasks)
-      return [...updatedTasks];
-    });
+    dispatchTasksUpdate({ type: "EDIT", data: { value: value, id: id } })
   }
 
   return (
