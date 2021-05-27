@@ -25,16 +25,15 @@ const tasksReducer = (previousState, action) => {
     updatedTasks[existingTaskIndex] = updatedtask;
 
     return [...updatedTasks];
-
   }
 };
 
 function App() {
-  const savedTasks = localStorage.getItem('tasks-list');
   const [formIsVisible, setFormIsVisible] = useState(false);
-  // const [tasks, setTasks] = useState(savedTasks ? JSON.parse(savedTasks) : []);
+
+  const savedTasks = localStorage.getItem('tasks-list');
   const tasksInitialState = savedTasks ? JSON.parse(savedTasks) : [];
-  const [tasks, dispatchTasksUpdate] = useReducer(tasksReducer, tasksInitialState)
+  const [tasks, dispatchTasksUpdate] = useReducer(tasksReducer, tasksInitialState);
 
   useEffect(
     () => { localStorage.setItem('tasks-list', JSON.stringify(tasks)) },
@@ -53,7 +52,6 @@ function App() {
   const checkHandler = (id) => {
     dispatchTasksUpdate({ type: "CHECK", data: id })
   }
-
   const editHandler = (value, id) => {
     dispatchTasksUpdate({ type: "EDIT", data: { value: value, id: id } })
   }
