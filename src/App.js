@@ -36,9 +36,10 @@ const tasksReducer = (previousState, action) => {
 
     default:
       throw new Error();
-
   }
+
   return [...updatedTasks];
+
 };
 
 function App() {
