@@ -1,5 +1,5 @@
 .item {
-  background-color: #fff;
+  background-color: var(--color-white);
   padding: 2rem 1rem;
   border-radius: 10px;
   margin-bottom: 1rem;
@@ -11,7 +11,7 @@
   width: 20px;
   height: 20px;
   border-radius: 3px;
-  border: 2px solid #9932cc;
+  border: 2px solid var(--color-purple);
 }
 
 .input {

@@ -40,15 +40,25 @@ ul li {
 /**
 * GLOBALS STYLES
 **/
-
+:root {
+  --color-light-gray: #eee;
+  --color-dark-gray: #495057;
+  --color-purple: #9932cc;
+  --color-light-purple: #b801b8;
+  --color-white: #fff;
+}
 body {
   font-family: "Roboto", sans-serif;
   font-size: 1.4rem;
-  color: #495057;
+  color: var(--color-dark-gray);
 }
 
 main {
-  background-color: #eee;
+  background-color: var(--color-light-gray);
   padding: 3rem 1.5rem;
   min-height: calc(100vh - 92px); /* hauteur page - hauteur header */
+}
+
+.dark {
+  background-color: var(--color-dark-gray);
 }

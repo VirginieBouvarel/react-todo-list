@@ -1,9 +1,9 @@
 .button {
   font: inherit;
   font-size: 4rem;
-  border: 1px solid #9932cc;
-  background: #9932cc;
-  color: white;
+  border: 1px solid var(--color-purple);
+  background: var(--color-purple);
+  color: var(--color-white);
   padding: 1.2rem 2.2rem;
   cursor: pointer;
   border-radius: 50%;
@@ -14,6 +14,6 @@
 
 .button:hover,
 .button:active {
-  background: #b801b8;
-  border-color: #b801b8;
+  background: var(--color-light-purple);
+  border-color: var(--color-light-purple);
 }
