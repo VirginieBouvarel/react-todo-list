@@ -14,7 +14,7 @@ const tasksReducer = (previousState, action) => {
   let updatedTasks = [...previousState];
 
   switch (action.type) {
-    case "ADD":
+    case actionTypes.add:
       const newTask = {
         id: `task-${Math.random().toString()}`,
         name: `${action.data}`
@@ -22,11 +22,11 @@ const tasksReducer = (previousState, action) => {
       updatedTasks = updatedTasks.concat(newTask);
       break;
 
-    case "CHECK":
+    case actionTypes.check:
       updatedTasks = updatedTasks.filter((item) => item.id !== action.data);
       break;
 
-    case "EDIT":
+    case actionTypes.edit:
       const existingTaskIndex = previousState.findIndex(task => task.id === action.data.id);
       const existingTask = previousState[existingTaskIndex];
 
