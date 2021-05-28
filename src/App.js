@@ -39,17 +39,28 @@ const tasksReducer = (previousState, action) => {
 };
 
 function App() {
+  const [darkMode, setDarkMode] = useState(false);
   const [formIsVisible, setFormIsVisible] = useState(false);
 
   const savedTasks = localStorage.getItem('tasks-list');
   const tasksInitialState = savedTasks ? JSON.parse(savedTasks) : [];
   const [tasks, dispatchTasksUpdate] = useReducer(tasksReducer, tasksInitialState);
 
+
   useEffect(
     () => { localStorage.setItem('tasks-list', JSON.stringify(tasks)) },
     [tasks]
   );
 
+  const switchHandler = () => {
+    if (darkMode) {
+      setDarkMode(false);
+      console.log(darkMode);
+    } else {
+      setDarkMode(true);
+      console.log(darkMode);
+    }
+  }
   const showFormHandler = () => {
     setFormIsVisible(true);
   }
@@ -70,8 +81,8 @@ function App() {
   return (
     <div className="App">
       { formIsVisible && <TaskAddForm onClose={hideFormHandler} onAdd={addHandler} />}
-      <Header />
-      <main>
+      <Header onSwitch={switchHandler} />
+      <main className={darkMode ? 'dark' : ""}>
         <TasksList
           tasks={tasks}
           onPlus={showFormHandler}
