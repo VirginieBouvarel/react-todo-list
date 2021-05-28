@@ -4,11 +4,7 @@ import Header from './components/Header';
 import TasksList from './components/Task/TasksList';
 import TaskAddForm from './components/Task/TaskAddForm';
 
-const actionTypes = {
-  add: 'ADD',
-  check: 'CHECK',
-  edit: 'EDIT'
-}
+const actionTypes = { add: 'ADD', check: 'CHECK', edit: 'EDIT' };
 
 const tasksReducer = (previousState, action) => {
   let updatedTasks = [...previousState];
