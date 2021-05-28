@@ -1,4 +1,6 @@
-import ReactDOM from 'react-dom'
+import React, { useContext } from 'react';
+import ReactDOM from 'react-dom';
+import ThemeContext from '../../store/theme-context';
 import classes from './Modal.module.css';
 
 const Backdrop = (props) => {
@@ -6,8 +8,9 @@ const Backdrop = (props) => {
 }
 
 const ModalOverlay = (props) => {
+  const themeCtx = useContext(ThemeContext);
   return (
-    <div className={`${classes.modal} ${props.darkMode ? 'modal--dark' : ''}`}>{props.children}</div>
+    <div className={`${classes.modal} ${themeCtx.darkMode ? 'modal--dark' : ''}`}>{props.children}</div>
   );
 }
 
@@ -18,7 +21,7 @@ const Modal = (props) => {
     <>
       {ReactDOM.createPortal(<Backdrop onClose={props.onClose} />, portalElement)}
       {ReactDOM.createPortal(
-        <ModalOverlay darkMode={props.darkMode}>{props.children}</ModalOverlay>,
+        <ModalOverlay>{props.children}</ModalOverlay>,
         portalElement
       )}
     </>

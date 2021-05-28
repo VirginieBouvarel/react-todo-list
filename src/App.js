@@ -1,8 +1,10 @@
-import React, { useState, useReducer, useEffect } from 'react'
+import React, { useState, useReducer, useEffect, useContext } from 'react'
+import ThemeContext from './store/theme-context';
 
 import Header from './components/Header';
 import TasksList from './components/Task/TasksList';
 import TaskAddForm from './components/Task/TaskAddForm';
+
 
 const actionTypes = { add: 'ADD', check: 'CHECK', edit: 'EDIT' };
 
@@ -17,11 +19,9 @@ const tasksReducer = (previousState, action) => {
       };
       updatedTasks = updatedTasks.concat(newTask);
       break;
-
     case actionTypes.check:
       updatedTasks = updatedTasks.filter((item) => item.id !== action.data);
       break;
-
     case actionTypes.edit:
       const existingTaskIndex = previousState.findIndex(task => task.id === action.data.id);
       const existingTask = previousState[existingTaskIndex];
@@ -29,38 +29,27 @@ const tasksReducer = (previousState, action) => {
       const updatedtask = { ...existingTask, name: action.data.value };
       updatedTasks[existingTaskIndex] = updatedtask;
       break;
-
     default:
       throw new Error();
   }
 
   return [...updatedTasks];
-
 };
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
+  const themeCtx = useContext(ThemeContext);
+
   const [formIsVisible, setFormIsVisible] = useState(false);
 
   const savedTasks = localStorage.getItem('tasks-list');
   const tasksInitialState = savedTasks ? JSON.parse(savedTasks) : [];
   const [tasks, dispatchTasksUpdate] = useReducer(tasksReducer, tasksInitialState);
 
-
   useEffect(
     () => { localStorage.setItem('tasks-list', JSON.stringify(tasks)) },
     [tasks]
   );
 
-  const switchHandler = () => {
-    if (darkMode) {
-      setDarkMode(false);
-      console.log(darkMode);
-    } else {
-      setDarkMode(true);
-      console.log(darkMode);
-    }
-  }
   const showFormHandler = () => {
     setFormIsVisible(true);
   }
@@ -80,17 +69,21 @@ function App() {
 
   return (
     <div className="App">
-      { formIsVisible && <TaskAddForm darkMode={darkMode} onClose={hideFormHandler} onAdd={addHandler} />}
-      <Header darkMode={darkMode} onSwitch={switchHandler} />
-      <main className={darkMode ? 'dark' : ""}>
+
+      { formIsVisible && <TaskAddForm onClose={hideFormHandler} onAdd={addHandler} />}
+
+      <Header />
+
+      <main className={themeCtx.darkMode ? 'dark' : ""}>
         <TasksList
-          darkMode={darkMode}
+          darkMode={themeCtx.darkMode}
           tasks={tasks}
           onPlus={showFormHandler}
           onCheck={checkHandler}
           onChange={editHandler}
         />
       </main>
+
     </div>
   );
 }

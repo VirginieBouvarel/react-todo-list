@@ -22,7 +22,7 @@ const TaskAddForm = (props) => {
   }
 
   return (
-    <Modal darkMode={props.darkMode} onClose={props.onClose}>
+    <Modal onClose={props.onClose}>
       <form className={classes.form} onSubmit={submitHandler}>
 
         <Input

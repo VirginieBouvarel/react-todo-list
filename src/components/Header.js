@@ -1,14 +1,24 @@
+import React, { useContext } from 'react';
 import classes from './Header.module.css';
+import ThemeContext from '../store/theme-context';
 import Button from './UI/Button';
 
 
 const Header = (props) => {
+  const themeCtx = useContext(ThemeContext);
+
   return (
-    <header className={`${classes.header} ${props.darkMode ? classes['header--dark'] : ""}`}>
+    <header className={`${classes.header} ${themeCtx.darkMode ? classes['header--dark'] : ""}`}>
+
       <h1><span className={classes.my}>My</span>ToDo</h1>
-      <Button className={`${classes.switch} ${props.darkMode ? classes['button--dark'] : ''}`} onClick={props.onSwitch}>
-        {props.darkMode ? <i className="far fa-sun"></i> : <i className="far fa-moon"></i>}
+
+      <Button
+        className={`${classes.switch} ${themeCtx.darkMode ? classes['button--dark'] : ''}`}
+        onClick={themeCtx.onSwitch}
+      >
+        {themeCtx.darkMode ? <i className="far fa-sun"></i> : <i className="far fa-moon"></i>}
       </Button>
+
     </header>
   )
 }
