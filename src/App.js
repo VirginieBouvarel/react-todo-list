@@ -76,7 +76,6 @@ function App() {
 
       <main className={themeCtx.darkMode ? 'dark' : ""}>
         <TasksList
-          darkMode={themeCtx.darkMode}
           tasks={tasks}
           onPlus={showFormHandler}
           onCheck={checkHandler}

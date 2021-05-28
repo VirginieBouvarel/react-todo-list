@@ -12,7 +12,6 @@ const TasksList = (props) => {
       <ul>
         {props.tasks.map(task => (
           <TaskItem
-            darkMode={props.darkMode}
             key={task.id}
             id={task.id}
             label={task.name}
@@ -21,7 +20,7 @@ const TasksList = (props) => {
           />
         ))}
       </ul>
-      <TaskAddButton darkMode={props.darkMode} onPlus={props.onPlus} />
+      <TaskAddButton onPlus={props.onPlus} />
     </div>
   )
 }
