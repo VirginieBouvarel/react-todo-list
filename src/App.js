@@ -80,10 +80,11 @@ function App() {
 
   return (
     <div className="App">
-      { formIsVisible && <TaskAddForm onClose={hideFormHandler} onAdd={addHandler} />}
-      <Header onSwitch={switchHandler} />
+      { formIsVisible && <TaskAddForm darkMode={darkMode} onClose={hideFormHandler} onAdd={addHandler} />}
+      <Header darkMode={darkMode} onSwitch={switchHandler} />
       <main className={darkMode ? 'dark' : ""}>
         <TasksList
+          darkMode={darkMode}
           tasks={tasks}
           onPlus={showFormHandler}
           onCheck={checkHandler}

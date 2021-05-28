@@ -7,7 +7,7 @@ const Backdrop = (props) => {
 
 const ModalOverlay = (props) => {
   return (
-    <div className={classes.modal}>{props.children}</div>
+    <div className={`${classes.modal} ${props.darkMode ? 'modal--dark' : ''}`}>{props.children}</div>
   );
 }
 
@@ -18,7 +18,7 @@ const Modal = (props) => {
     <>
       {ReactDOM.createPortal(<Backdrop onClose={props.onClose} />, portalElement)}
       {ReactDOM.createPortal(
-        <ModalOverlay>{props.children}</ModalOverlay>,
+        <ModalOverlay darkMode={props.darkMode}>{props.children}</ModalOverlay>,
         portalElement
       )}
     </>

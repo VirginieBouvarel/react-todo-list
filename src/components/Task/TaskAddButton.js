@@ -5,7 +5,7 @@ const TaskAddButton = (props) => {
   return (
     <button
       type="button"
-      className={classes.button}
+      className={`${classes.button} ${props.darkMode ? classes['button--dark'] : ''}`}
       onClick={props.onPlus}
     >
       +

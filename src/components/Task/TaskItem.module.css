@@ -19,3 +19,13 @@
   color: inherit;
   width: 300px;
 }
+
+.item--dark,
+.item--dark input {
+  background-color: var(--bg-dark-violet);
+  color: var(--color-light-gray);
+}
+
+.item--dark > .check {
+  border: 2px solid var(--bg-light-violet);
+}

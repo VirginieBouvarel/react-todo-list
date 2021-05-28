@@ -14,3 +14,11 @@
   font-family: "Dancing Script", cursive;
   font-weight: bolder;
 }
+
+.header--dark {
+  background-color: var(--bg-light-violet);
+}
+
+.header--dark > h1 {
+  color: var(--color-light-gray);
+}

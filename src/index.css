@@ -46,6 +46,9 @@ ul li {
   --color-purple: #9932cc;
   --color-light-purple: #b801b8;
   --color-white: #fff;
+  --bg-dark: #1d1d1d;
+  --bg-dark-violet: #2e2a33;
+  --bg-light-violet: #bb86fc;
 }
 
 body {
@@ -61,5 +64,5 @@ main {
 }
 
 .dark {
-  background-color: var(--color-dark-gray);
+  background-color: var(--bg-dark);
 }
