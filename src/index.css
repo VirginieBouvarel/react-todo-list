@@ -47,8 +47,9 @@ ul li {
   --color-light-purple: #b801b8;
   --color-white: #fff;
   --bg-dark: #1d1d1d;
-  --bg-dark-violet: #2e2a33;
-  --bg-light-violet: #bb86fc;
+  --bg-black-violet: #2e2a33;
+  --bg-light-violet: #a25cf7;
+  --bg-dark-violet: #853ddd;
 }
 
 body {

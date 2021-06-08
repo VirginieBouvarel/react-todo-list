@@ -1,25 +1,10 @@
-.button {
+.add-button {
   font: inherit;
   font-size: 4rem;
-  border: 1px solid var(--color-purple);
-  background: var(--color-purple);
-  color: var(--color-white);
+  border: none;
   padding: 1.2rem 2.2rem;
-  cursor: pointer;
   border-radius: 50%;
   position: absolute;
   bottom: 1.5rem;
   left: calc(50% - 38px);
-}
-
-.button:hover,
-.button--dark:hover {
-  background: var(--color-light-purple);
-  border-color: var(--color-light-purple);
-}
-
-.button--dark {
-  border: 1px solid var(--bg-light-violet);
-  background: var(--bg-light-violet);
-  color: var(--color-light-gray);
 }

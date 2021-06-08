@@ -13,7 +13,6 @@ const Header = (props) => {
       <h1><span className={classes.my}>My</span>ToDo</h1>
 
       <Button
-        className={`${classes.switch} ${themeCtx.darkMode ? classes['button--dark'] : ''}`}
         onClick={themeCtx.onSwitch}
       >
         {themeCtx.darkMode ? <i className="far fa-sun"></i> : <i className="far fa-moon"></i>}

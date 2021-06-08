@@ -58,12 +58,15 @@ function App() {
   }
 
   const addHandler = (task) => {
+    console.log('dispatch addHandler');
     dispatchTasksUpdate({ type: actionTypes.add, data: task })
   }
   const checkHandler = (id) => {
+    console.log('dispatch checkHandler');
     dispatchTasksUpdate({ type: actionTypes.check, data: id })
   }
   const editHandler = (value, id) => {
+    console.log('dispatch editHandler');
     dispatchTasksUpdate({ type: actionTypes.edit, data: { value, id } })
   }
 

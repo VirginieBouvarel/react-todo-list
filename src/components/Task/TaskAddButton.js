@@ -1,19 +1,14 @@
-import React, { useContext } from 'react';
-import ThemeContext from '../../store/theme-context';
-
 import classes from './TaskAddButton.module.css';
+import Button from './../UI/Button';
 
 const TaskAddButton = (props) => {
-  const themeCtx = useContext(ThemeContext);
-
   return (
-    <button
-      type="button"
-      className={`${classes.button} ${themeCtx.darkMode ? classes['button--dark'] : ''}`}
+    <Button
+      className={classes['add-button']}
       onClick={props.onPlus}
     >
       +
-    </button>
+    </Button>
   );
 }
 

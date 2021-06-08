@@ -1,13 +1,22 @@
 .button {
   border: none;
   border-radius: 10px;
-  background: transparent;
+  background: var(--color-purple);
   color: var(--color-white);
   font-weight: bolder;
   padding: 1rem;
   cursor: pointer;
 }
 
+.button:hover {
+  background: var(--color-light-purple);
+}
+
 .button--dark {
+  background: var(--bg-light-violet);
   color: var(--color-light-gray);
+}
+
+.button--dark:hover {
+  background: var(--bg-dark-violet);
 }

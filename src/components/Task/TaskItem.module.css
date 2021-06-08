@@ -22,7 +22,7 @@
 
 .item--dark,
 .item--dark input {
-  background-color: var(--bg-dark-violet);
+  background-color: var(--bg-black-violet);
   color: var(--color-light-gray);
 }
 
